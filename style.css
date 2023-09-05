@@ -1,10 +1,14 @@
 /* style.css */
 
 body {
-    background-color: white;
+    background-color: gray;
     color: black;
 }
 
 body, input {
     font-family: 'Poppins', sans-serif;
+}
+
+input{
+    color: black;
 }
