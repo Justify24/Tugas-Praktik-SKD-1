@@ -1,5 +1,5 @@
 <?php
-// enkripsi1.php
+// denkripsi1.php
 
 // Define the enkripsi function
 function denkripsi() {
@@ -17,7 +17,7 @@ function denkripsi() {
         $denkripsi = strtr($input, $key);
 
         // Display the result
-        echo "Kata yang di denkripsi adalah: $input";
+        echo "Kode denkripsi adalah: $input";
         echo "<br><br>";
         echo "Hasil denkripsi adalah: $denkripsi";
     }

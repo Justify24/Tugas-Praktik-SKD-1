@@ -17,7 +17,7 @@ function enkripsi() {
         $enkripsi = strtr($input, $key);
 
         // Display the result
-        echo "Kata yang dienkripsi adalah: $input";
+        echo "Kalimat Biasa (Plain Text) adalah: $input";
         echo "<br><br>";
         echo "Hasil enkripsi adalah: $enkripsi";
     }

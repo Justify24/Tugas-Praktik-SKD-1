@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enkripsi/Deskripsi Form</title>
-
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <style>
     </style>
 </head>
-<body class="bg-black text-white flex flex-col min-h-screen">
+<body class="bg-gray-300 flex flex-col min-h-screen">
 
     <!-- Header -->
     <header class="bg-gray-800 text-white py-4">
@@ -33,32 +31,36 @@
         <div class="mt-4">
             <label for="action" class="text-black">Pilih Tindakan:</label>
             <select name="action" id="action" class="border border-black rounded px-2 py-1 focus:text-black focus:bg-white">
-                <option value="">Pilih tindakan</option>
+                <option value="" disabled selected>Pilih tindakan</option>
                 <option value="enkripsi">Enkripsi</option>
                 <option value="denkripsi">Dekripsi</option>
             </select>
         </div>
 
         <input type="submit" value="Proses" class="bg-black text-white px-4 py-2 rounded mt-4">
+
+        <br><br><br><?php
+        // Include enkripsi1.php and denkripsi1.php to access the enkripsi() and denkripsi() functions
+        require('enkripsi1.php');
+        require('denkripsi1.php');
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $input = $_POST['input'];
+            $action = $_POST['action'];
+
+            if ($action == 'enkripsi') {
+                $result = enkripsi($input); // Call the enkripsi function
+            } elseif ($action == 'denkripsi') {
+                $result = denkripsi($input); // Call the denkripsi function
+            }
+        }
+        ?>
+
     </form>
+
+    
 </div>
 
-    <?php
-    // Include enkripsi1.php and denkripsi1.php to access the enkripsi() and denkripsi() functions
-    require('enkripsi1.php');
-    require('denkripsi1.php');
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $input = $_POST['input'];
-        $action = $_POST['action'];
-
-        if ($action == 'enkripsi') {
-            $result = enkripsi($input); // Call the enkripsi function
-        } elseif ($action == 'denkripsi') {
-            $result = denkripsi($input); // Call the denkripsi function
-        }
-    }
-    ?>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-4 mt-auto">
